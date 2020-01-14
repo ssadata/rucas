@@ -1,32 +1,19 @@
-#!/usr/bin/env python
-# coding: utf-8
 
 # # El objetivo del siguiente test es poder realizar las consultas solicitadas en un ambiente separado del programa principal con el objetivo de resguardar la información ya generada y mantener la autonomía de los procesos. 
-# 
-
-# In[12]:
-
-
+ 
 import os
 import json
 import pandas as pd
 import pyreadstat
 
-
-# In[13]:
-
-
 # Directorio de bases a cargar
 dir_path = "/home/haze/Documentos/Programa/AtomProyects/RUCAS/tablas/TEST/test_consultas_SQL/Tablas/"
-
 
 # ### Carga de tablas como base de datos:
 
 # * Se crea el directorio vacío "bases" en el cual se cargarán todas las bases.
 # * Se cargarán tantas bases como archivos csv hayan presentes en el directorio seleccionado. 
 # * Inicialmente quedarán con el nombre del archivo y aunque pueden ser editados no es estrictamente necesario
-
-# In[3]:
 
 
 bases = {}
@@ -40,37 +27,21 @@ for file in os.listdir(dir_path):
 
 
 # ##### Ejemplo de base cargada: Se menciona el directorio, especifíca la base y llama a la acción "head()" que imprime los 5 primeros casos de la tabla completa.
-# No visualiza las 135 columnas por un tema de espacio
-# 
-
-# In[4]:
-
+# No visualiza las 135 columnas por un tema de espacio:
 
 bases["w1_bdm_e_beta"].head() 
 
+#Pregunta n° 1:
 
-# # Pregunta n° 1:
-
-# #### Base con información de Brisas del Mar, de las 3 olas, que contenga las preguntas P1, P11 y P15 para cada una de las viviendas. Las olas se agregan como columnas.
-
-# In[8]:
-
+##### Base con información de Brisas del Mar, de las 3 olas, que contenga las preguntas P1, P11 y P15 para cada una de las viviendas. Las olas se agregan como columnas.
 
 for base in bases:
     bases[base]["folio_unico"] = bases[base]["folio_villa"].astype('str') + '-' + bases[base]["folio_vivienda"].astype('str')
-
-
-# In[9]:
-
 
 cols = ["P1_1", "P1_3", "P1_4", "P1_6", "P1_7" ,"P1_8", "P1_9", "P1_10", "P1_11", "P1_12", "P1_13", "P11A_1_2", 
          "P11A_2_1", "P11A_2_2", "P11A_3_1", "P11A_3_2", "P11A_4_1", "P11A_4_2", "P15_1_1", "P15_1_1A", "P15_1_2", 
          "P15_1_3A", "P15_1_3B", "P15_2_1", "P15_2_1A", "P15_2_2", "P15_2_3A", "P15_2_3B", "P15_3_1", "P15_3_1A", 
          "P15_3_2", "P15_3_3A", "P15_3_3B", "folio_unico"]
-
-
-# In[10]:
-
 
 df1 = bases["w1_bdm_e_beta"].loc[:, ["folio_villa", "folio_vivienda"] + cols]
 df2 = bases["w2_bdm_p"].loc[:, cols]
@@ -80,23 +51,13 @@ df = (df1.join(df2.set_index('folio_unico'), how="left", on="folio_unico", lsuff
      )
 
 
-# Corregir uso de conceptos Tabla / base de datos
-# Corregir el sufijo: W1, W2 (...) etc
-# Corregir el "folio_unico" debe ir como tercera columna
-
-# In[11]:
-
-
 df.head()
 #df.to_csv('ejemplo1.csv', sep=',', encoding='utf-8', index = False)
 
 
-# # Pregunta n°2:
+# Pregunta n°2:
 
-# #### Base con informacion de Brisas del Mar, que para cada sujeto contenga las variables H3, SA1, SD1. SD2, MC1 (de la línea de base) y las preguntas P1, P11 y P15 (de las 3 olas). Las olas se agregan como columnas.
-
-# In[11]:
-
+#### Base con informacion de Brisas del Mar, que para cada sujeto contenga las variables H3, SA1, SD1. SD2, MC1 (de la línea de base) y las preguntas P1, P11 y P15 (de las 3 olas). Las olas se agregan como columnas.
 
 cols2 = ["H3", "SA1", "SD1", "SD2", "MC1", "folio_unico"]
 
