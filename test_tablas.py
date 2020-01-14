@@ -1,5 +1,4 @@
-
-# # El objetivo del siguiente test es poder realizar las consultas solicitadas en un ambiente separado del programa principal con el objetivo de resguardar la información ya generada y mantener la autonomía de los procesos. 
+# El objetivo del siguiente test es poder realizar las consultas solicitadas en un ambiente separado del programa principal con el objetivo de resguardar la información ya generada y mantener la autonomía de los procesos. 
  
 import os
 import json
@@ -9,8 +8,7 @@ import pyreadstat
 # Directorio de bases a cargar
 dir_path = "/home/haze/Documentos/Programa/AtomProyects/RUCAS/tablas/TEST/test_consultas_SQL/Tablas/"
 
-# ### Carga de tablas como base de datos:
-
+### Carga de tablas como base de datos:
 # * Se crea el directorio vacío "bases" en el cual se cargarán todas las bases.
 # * Se cargarán tantas bases como archivos csv hayan presentes en el directorio seleccionado. 
 # * Inicialmente quedarán con el nombre del archivo y aunque pueden ser editados no es estrictamente necesario
@@ -61,10 +59,6 @@ df.head()
 
 cols2 = ["H3", "SA1", "SD1", "SD2", "MC1", "folio_unico"]
 
-
-# In[12]:
-
-
 dfa = bases["04_bmw1encu"].loc[:, ["folio_vivienda"] + cols2]
 dfb = bases["00_bmw1pauta"].loc[:, cols]
 dfc = bases["01_bmw2pauta"].loc[:, cols]
@@ -74,17 +68,10 @@ dfd = bases["02_bmw3pauta"].loc[:, cols]
 #         .join(dfc.set_index('folio_unico'), how="left", on='folio_unico', lsuffix="", rsuffix="_02")
 #         .join(dfd.set_index('folio_unico'), how= "left", on='folio_unico', lsuffix = "", rsuffix= "_03")
 #      )
-     
-
-
-# In[13]:
 
 
 dfb1 = (df.join(dfa.set_index('folio_vivienda'), how="left", on='folio_vivienda', lsuffix="", rsuffix="_01a")
        )
-
-
-# In[14]:
 
 
 dfb1.head()
@@ -95,69 +82,39 @@ dfb1.head()
 # Probar pegar DF con las bases
 
 # ### 2 errores a corregir:
-# * cambiar los float por int (ej: 1.0 a 1) en los csv (para lectura)
+
 # * Averiguar por qué al crear el dfb1 "cols" deja de tomar los valores o no los identifica
-# 
 
-# # Pregunta n°3:
+          
+# Pregunta n°3:
 
-# #### Base con información de Brisas del Mar y Marta Brunet de la pauta de observación, todas las preguntas. Las olas y villas se agregan como filas. 
-
-# In[16]:
-
+#### Base con información de Brisas del Mar y Marta Brunet de la pauta de observación, todas las preguntas. Las olas y villas se agregan como filas. 
 
 df7 = bases["00_bmw1pauta"].loc[:, ["folio_villa", "folio_vivienda"] + cols]
 df8 = bases["03_mbw1pauta"].loc[:, cols]
 #dfc = (df7.join(df8.set_index('folio_unico'), how="left", on="folio_unico", lsuffix="_00", rsuffix="_01")
 #      )
 
-
-# In[17]:
-
-
 result = pd.concat([df7, df8], sort = True) #ok
-
-
-# In[18]:
-
 
 result.head()
 
-
-# In[16]:
-
-
 result.to_csv('ejemplo3.csv', sep=',', encoding='utf-8', index = False)
-
-
-#     
 
 # ###### P1_2 solo debería estar en bm1 
 # Probar el concat con variables específicas y forzar poner variables diferentes (ver error) 
 # Ordenar las variables (folios al principio)
 
-# In[24]:
-
-
 def count_col(df, col):
     return df[col].count()
-
-
-# In[32]:
 
 
 count_H3 = count_col(dfb1, 'SD1')
 
 
-# In[41]:
-
-
 df["P1_1"].fillna(0).astype('int').head() 
 
 df["P1_1"] = df["P1_1"].astype('int') 
-
-
-# In[ ]:
 
 
 
