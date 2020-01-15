@@ -6,7 +6,7 @@ import pandas as pd
 import pyreadstat
 
 # Directorio de bases a cargar
-dir_path = "/home/haze/Documentos/Programa/AtomProyects/RUCAS/tablas/TEST/test_consultas_SQL/Tablas/"
+dir_path = "/directorio/de/carpeta/donde/alojan/las/bases/"
 
 ### Carga de tablas como base de datos:
 # * Se crea el directorio vacío "bases" en el cual se cargarán todas las bases.
@@ -50,7 +50,7 @@ df = (df1.join(df2.set_index('folio_unico'), how="left", on="folio_unico", lsuff
 
 
 df.head()
-#df.to_csv('ejemplo1.csv', sep=',', encoding='utf-8', index = False)
+df.to_csv('ejemplo1.csv', sep=',', encoding='utf-8', index = False)
 
 
 # Pregunta n°2:
@@ -64,18 +64,13 @@ dfb = bases["w1_bdm_p"].loc[:, cols]
 dfc = bases["w2_bdm_p"].loc[:, cols]
 dfd = bases["w3_bdm_p"].loc[:, cols]
 
-#dfb1 = (dfa.join(dfb.set_index('folio_unico'), how="left", on='folio_unico', lsuffix="_00", rsuffix="_01")
-#         .join(dfc.set_index('folio_unico'), how="left", on='folio_unico', lsuffix="", rsuffix="_02")
-#         .join(dfd.set_index('folio_unico'), how= "left", on='folio_unico', lsuffix = "", rsuffix= "_03")
-#      )
-
-
+#La consulta actual se compone del resultado de la consulta anterior en union con 
 dfb1 = (df.join(dfa.set_index('folio_vivienda'), how="left", on='folio_vivienda', lsuffix="", rsuffix="_01a")
        )
 
 
 dfb1.head()
-#dfb1.to_csv('ejemplo2.csv', sep=',', encoding='utf-8', index = False)
+dfb1.to_csv('ejemplo2.csv', sep=',', encoding='utf-8', index = False)
 
 
 # Dentro de cada folio de vivienda integre los otros
