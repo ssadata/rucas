@@ -59,10 +59,10 @@ df.head()
 
 cols2 = ["H3", "SA1", "SD1", "SD2", "MC1", "folio_unico"]
 
-dfa = bases["04_bmw1encu"].loc[:, ["folio_vivienda"] + cols2]
-dfb = bases["00_bmw1pauta"].loc[:, cols]
-dfc = bases["01_bmw2pauta"].loc[:, cols]
-dfd = bases["02_bmw3pauta"].loc[:, cols]
+dfa = bases["w1_bdm_e_beta"].loc[:, ["folio_vivienda"] + cols2]
+dfb = bases["w1_bdm_p"].loc[:, cols]
+dfc = bases["w2_bdm_p"].loc[:, cols]
+dfd = bases["w3_bdm_p"].loc[:, cols]
 
 #dfb1 = (dfa.join(dfb.set_index('folio_unico'), how="left", on='folio_unico', lsuffix="_00", rsuffix="_01")
 #         .join(dfc.set_index('folio_unico'), how="left", on='folio_unico', lsuffix="", rsuffix="_02")
@@ -90,12 +90,12 @@ dfb1.head()
 
 #### Base con información de Brisas del Mar y Marta Brunet de la pauta de observación, todas las preguntas. Las olas y villas se agregan como filas. 
 
-df7 = bases["00_bmw1pauta"].loc[:, ["folio_villa", "folio_vivienda"] + cols]
-df8 = bases["03_mbw1pauta"].loc[:, cols]
+df7 = bases["w1_bdm_p"].loc[:, ["folio_villa", "folio_vivienda"] + cols]
+df8 = bases["w1_mb_p"].loc[:, cols]
 #dfc = (df7.join(df8.set_index('folio_unico'), how="left", on="folio_unico", lsuffix="_00", rsuffix="_01")
 #      )
 
-result = pd.concat([df7, df8], sort = True) #ok
+result = pd.concat([df7, df8], sort = True) 
 
 result.head()
 
