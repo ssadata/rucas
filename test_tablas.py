@@ -31,46 +31,47 @@ bases["w1_bdm_e_beta"].head()
 
 #Pregunta n° 1:
 
-##### Base con información de Brisas del Mar, de las 3 olas, que contenga las preguntas P1, P11 y P15 para cada una de las viviendas. Las olas se agregan como columnas.
-
+##### Base con información de Brisas del Mar, de las 3 olas, que contenga las preguntas H3, H5, H9, H7, CS19, CS20, O19a, O20 y  para cada una de las viviendas. Las olas se agregan como columnas.
+##### Corresponde ahora seleccionar aquellas variables que si perduran en las distintas waves (para un mejor ejemplo)
+          
 for base in bases:
     bases[base]["folio_unico"] = bases[base]["folio_villa"].astype('str') + '-' + bases[base]["folio_vivienda"].astype('str')
 
-cols = ["P1_1", "P1_3", "P1_4", "P1_6", "P1_7" ,"P1_8", "P1_9", "P1_10", "P1_11", "P1_12", "P1_13", "P11A_1_2", 
-         "P11A_2_1", "P11A_2_2", "P11A_3_1", "P11A_3_2", "P11A_4_1", "P11A_4_2", "P15_1_1", "P15_1_1A", "P15_1_2", 
-         "P15_1_3A", "P15_1_3B", "P15_2_1", "P15_2_1A", "P15_2_2", "P15_2_3A", "P15_2_3B", "P15_3_1", "P15_3_1A", 
-         "P15_3_2", "P15_3_3A", "P15_3_3B", "folio_unico"]
+cols = ["H3", "H5", "H9", "H7", "CS19", "CS20", "O19a", "O20", "folio_unico"]
 
 df1 = bases["w1_bdm_e_beta"].loc[:, ["folio_villa", "folio_vivienda"] + cols]
-df2 = bases["w2_bdm_p"].loc[:, cols]
-df3 = bases["w3_bdm_p"].loc[:, cols]
-df = (df1.join(df2.set_index('folio_unico'), how="left", on="folio_unico", lsuffix="_00", rsuffix="_01")
+df2 = bases["w2_bdm_e_beta"].loc[:, cols]
+df3 = bases["w3_bdm_e_beta"].loc[:, cols]
+df = (df1.join(df2.set_index("folio_unico"), how="left", on="folio_unico", lsuffix="_00", rsuffix="_01")
          .join(df3.set_index("folio_unico"), how="left", on="folio_unico", lsuffix="", rsuffix="_02")
      )
 
 
 df.head()
-df.to_csv('ejemplo1.csv', sep=',', encoding='utf-8', index = False)
+#df.to_csv('ejemplo1.csv', sep=',', encoding='utf-8', index = False)
 
 
 # Pregunta n°2:
 
-#### Base con informacion de Brisas del Mar, que para cada sujeto contenga las variables H3, SA1, SD1. SD2, MC1 (de la línea de base) y las preguntas P1, P11 y P15 (de las 3 olas). Las olas se agregan como columnas.
+#### Base con informacion de Brisas del Mar, que para cada sujeto contenga las variables "SB3", "SU2_1", "CS19", "SA15a" (de la línea de base) y las preguntas "P1_1", "P1_2", "P11" (de las 3 olas). Las olas se agregan como columnas.
 
-cols2 = ["H3", "SA1", "SD1", "SD2", "MC1", "folio_unico"]
+cols2 = ["folio_unico", "SB3", "SU2_1", "CS19", "SA15a"]
+cols3 = ["P1_1", "P1_2", "P11"] 
 
 dfa = bases["w1_bdm_e_beta"].loc[:, ["folio_vivienda"] + cols2]
-dfb = bases["w1_bdm_p"].loc[:, cols]
-dfc = bases["w2_bdm_p"].loc[:, cols]
-dfd = bases["w3_bdm_p"].loc[:, cols]
+dfb = bases["w1_bdm_p"].loc[:, cols3]
+dfc = bases["w2_bdm_p"].loc[:, cols3]
+dfd = bases["w3_bdm_p"].loc[:, cols3]
 
-#La consulta actual se compone del resultado de la consulta anterior en union con 
-dfb1 = (df.join(dfa.set_index('folio_vivienda'), how="left", on='folio_vivienda', lsuffix="", rsuffix="_01a")
+
+dfb1 = (dfa.join(dfb.set_index('folio_vivienda'), how="left", on="folio_vivienda", lsuffix="_00a", rsuffix="_01a")
+        .join(dfc.set_index('folio_unico'), how="left", on="folio_unico", lsuffix="", rsuffix="_02a")
+        .join(dfd.set_index('folio_unico'), how="left", on="folio_unico", lsuffix="", rsuffix="_03a")
        )
 
 
 dfb1.head()
-dfb1.to_csv('ejemplo2.csv', sep=',', encoding='utf-8', index = False)
+#dfb1.to_csv('ejemplo2.csv', sep=',', encoding='utf-8', index = False)
 
 
 # Dentro de cada folio de vivienda integre los otros
