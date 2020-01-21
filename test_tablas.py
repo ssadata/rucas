@@ -96,6 +96,8 @@ df8 = bases["w1_mb_p"].loc[:, cols]
 #dfc = (df7.join(df8.set_index('folio_unico'), how="left", on="folio_unico", lsuffix="_00", rsuffix="_01")
 #      )
 
+print("asdasda")           
+          
 result = pd.concat([df7, df8], sort = True) 
 
 result.head()
