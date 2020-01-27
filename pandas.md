@@ -39,3 +39,6 @@ result = pd.concat(frames)
 print(result)
 
 ~~~~
+El resultado que obtendremos mediante el `print(result)`es la imagen a continuación 
+![Output](https://pandas.pydata.org/pandas-docs/version/0.23.0/_images/merging_concat_basic.png)
+
