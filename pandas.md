@@ -50,8 +50,15 @@ pd.concat(df's, axis=0, join='outer', join_axes=None, ignore_index=False,
           keys=None, levels=None, names=None, verify_integrity=False,
           copy=True)
 ~~~~
+[Se recomienda siempre chequear los valores por default]
 
-* `df's` : serán los objetos mapeados (series, dfs o panel pero en nuestro caso df's). El comportamiento es mas sencillo cuando se pasa un dictado (dict{key:value}) como en el caso de nuestro ejemplo ya que las key's seran utilizadas como el identificador a menos que se establezca otro criterio dentro de los args. Se manifiesta la observación que los objetos None no serán considerados a no ser que todos sean None y habr un ValueError ya que estaríamos concatenando un puñado de nada.    
-* `axis` : 
+* `df's` : serán los objetos mapeados (series, dfs o panel pero en nuestro caso df's). El comportamiento es mas sencillo cuando se pasa un dictado (dict{key:value}) como en el caso de nuestro ejemplo ya que las key's seran utilizadas como el identificador a menos que se establezca otro criterio dentro de los args. Se manifiesta la observación que los objetos None no serán considerados a no ser que todos sean None y habr un ValueError ya que estaríamos concatenando un puñado de nada.   
 
+* `axis` : Será el eje por el que se concatenarán los df's. Como ya sabemos en Python el primer elemento siempre se considera en la posición [0] cuando contamos de izquierda a derecha ([0, 1, 2,...]) y [-1] si contamos de derecha a izquierda ([..., -3, -2, -1]).
+
+* `join`: {‘inner’, ‘outer’} Por default 'outer' que implica union de los df's y 'inner' implica intersección. Lo que podrá ser util eventualmente pero por el momento innecesario considerando que únicamente queremos juntar bases.
+
+* `ignore_index`: boolean (variable dicotómica True/False). Por default False, este args es útil en la medida que los df's no tengan un eje de concatenación relevante ya que al pasar el valor a True generará que ignore los valores de indice de los df's y comience a etiquetar [0, 1, 2 ...etc].
+
+* `join_axes`:  
 
