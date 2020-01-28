@@ -42,3 +42,16 @@ print(result)
 El resultado que obtendremos mediante el `print(result)`es la imagen a continuación 
 ![Output](https://pandas.pydata.org/pandas-docs/version/0.23.0/_images/merging_concat_basic.png)
 
+En el ejercicio presentado lo primero que podemos observar es que los DataFrame (df) son homogeneos y con un único eje reconocible (mediante el cual se relacionan). Pero en para todos aquellos casos en los que no se trate de df's homogeneos tenemos una serie de Argumentos (args) editables con los que podemos especificar preferencias.
+La args en la función concat() presenta la siguiente configuración por default:
+
+~~~~
+pd.concat(df's, axis=0, join='outer', join_axes=None, ignore_index=False,
+          keys=None, levels=None, names=None, verify_integrity=False,
+          copy=True)
+~~~~
+
+* `df's` : serán los objetos mapeados (series, dfs o panel pero en nuestro caso df's). El comportamiento es mas sencillo cuando se pasa un dictado (dict{key:value}) como en el caso de nuestro ejemplo ya que las key's seran utilizadas como el identificador a menos que se establezca otro criterio dentro de los args. Se manifiesta la observación que los objetos None no serán considerados a no ser que todos sean None y habr un ValueError ya que estaríamos concatenando un puñado de nada.    
+* `axis` : 
+
+
