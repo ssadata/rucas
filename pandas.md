@@ -60,5 +60,5 @@ pd.concat(df's, axis=0, join='outer', join_axes=None, ignore_index=False,
 
 * `ignore_index`: boolean (variable dicotómica True/False). Por default False, este args es útil en la medida que los df's no tengan un eje de concatenación relevante ya que al pasar el valor a True generará que ignore los valores de indice de los df's y comience a etiquetar [0, 1, 2 ...etc].
 
-* `join_axes`:  
+* `join_axes`:   
 
