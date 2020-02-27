@@ -28,3 +28,9 @@ services:
     build: nginx
     ports:
         - "80:80"
+        
+  jupyter:
+   image: jupyter/scipy-notebook
+   restart: always
+   ports:
+       - 5000:8888
