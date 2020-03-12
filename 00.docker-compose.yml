@@ -6,11 +6,11 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: example
-      POSTGRES_USER: ssadata
+      POSTGRES_PASSWORD: rucas1
+      POSTGRES_USER: frangl
       POSTGRES_DB: base_datos
     ports:
-      - 5433:5432
+      - 5432:5433
 
   adminer:
     image: adminer
@@ -23,14 +23,3 @@ services:
     restart: always
     ports:
       - 3000:3000
-      
-  nginx:
-    build: nginx
-    ports:
-        - "80:80"
-        
-  jupyter:
-   image: jupyter/scipy-notebook
-   restart: always
-   ports:
-       - 5000:8888
