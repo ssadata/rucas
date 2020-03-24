@@ -25,6 +25,8 @@ services:
   metabase:
     image: metabase/metabase
     restart: always
+    environment:
+      - MB_SITE_URL=http://localhost/metabase/
     ports:
       - 3000:3000
 
