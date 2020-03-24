@@ -1,6 +1,10 @@
 version: '2'
 
 services:
+  nginx:
+    build: nginx
+    ports:
+      - "80:80"
 
   db:
     image: postgres
@@ -23,3 +27,14 @@ services:
     restart: always
     ports:
       - 3000:3000
+
+  minio:
+    image: minio/minio
+    volumes:
+      - ./data:/data
+    ports:
+      - 9000:9000
+    environment:
+      MINIO_ACCESS_KEY: rucas
+      MINIO_SECRET_KEY: passwordMinio123
+    command: server /data
