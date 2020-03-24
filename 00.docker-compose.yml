@@ -4,7 +4,7 @@ services:
   nginx:
     build: nginx
     ports:
-      - "80:80"
+      - 80:80
 
   db:
     image: postgres
@@ -14,7 +14,7 @@ services:
       POSTGRES_USER: frangl
       POSTGRES_DB: base_datos
     ports:
-      - 5432:5433
+      - 5432:5432
 
   adminer:
     image: adminer
