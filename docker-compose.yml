@@ -10,8 +10,8 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: rucas1
-      POSTGRES_USER: frangl
+      POSTGRES_PASSWORD: passwordRucas123
+      POSTGRES_USER: userRucas
       POSTGRES_DB: base_datos
     ports:
       - 5432:5432
@@ -37,6 +37,6 @@ services:
     ports:
       - 9000:9000
     environment:
-      MINIO_ACCESS_KEY: rucas
-      MINIO_SECRET_KEY: passwordMinio123
+      MINIO_ACCESS_KEY: userRucas
+      MINIO_SECRET_KEY: passwordRucas123
     command: server /data
