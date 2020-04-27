@@ -42,7 +42,7 @@ bases["w1_bdm_e_beta"].head()
 for base in bases:
     bases[base]["folio_unico"] = bases[base]["folio_villa"].astype('str') + '-' + bases[base]["folio_vivienda"].astype('str')
 
-cols = ["H3", "H5", "H9", "H7", "CS19", "CS20", "O19a", "O20", "folio_unico"]
+cols = ["H3", "H5", "H9", "H7", "CS19", "CS20", "O19a", "O20", "folio_unico"]   
 
 df1 = bases["w1_bdm_e_beta"].loc[:, ["folio_villa", "folio_vivienda"] + cols]
 df2 = bases["w2_bdm_e_beta"].loc[:, cols]
