@@ -16,4 +16,4 @@ df0, meta = prst.read_sav('/home/ubuntu/Rucas/data/sav/base.sav')
 
 
 ############# 3)  #####################################################
-df0.to_csv('file.csv', sep=',', encoding='utf-8', index = False)
+df0.to_csv('home/ubuntu/Rucas/data/csv/file.csv', sep=',', encoding='utf-8', index = False)
