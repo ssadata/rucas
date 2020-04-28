@@ -12,8 +12,8 @@
 
 import pyreadstat as prst
 # 1) #################################################### 2)  #########
-df0, meta = prst.read_sav('/home/ubuntu/Rucas/data/sav/<filename>.sav')
+df0, meta = prst.read_sav('/home/ubuntu/Rucas/data/sav/base.sav')
 
 
 ############# 3)  #####################################################
-df0.to_csv('<name>.csv', sep=',', encoding='utf-8', index = False)
+df0.to_csv('file.csv', sep=',', encoding='utf-8', index = False)
