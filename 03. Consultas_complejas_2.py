@@ -42,16 +42,14 @@ bases["w1_bdm_e_beta"].head()
 for base in bases:
     bases[base]["folio_unico"] = bases[base]["folio_villa"].astype('str') + '-' + bases[base]["folio_vivienda"].astype('str')
 
-cols = ["numero_int_hogar","edad","H3", "SA1","SA11","SA12","CS16", "CS18","MC2a", "folio_unico"]
+cols = ["folio_villa", "folio_vivienda","folio_hogar","numero_int_hogar","edad","H3", "SA1","SA11","SA12","CS16", "CS18","MC2a", "folio_unico"]
 
           ## quiero pegarlas hacia abajo
           
-df1 = bases["w1_bdm_e_beta"].loc[:, ["folio_villa", "folio_vivienda"] + cols]
+df1 = bases["w1_bdm_e_beta"].loc[:, cols]
 df2 = bases["w2_bdm_e_beta"].loc[:, cols]
 df3 = bases["w3_bdm_e_beta"].loc[:, cols]
-df = (df1.join(df2.set_index("folio_unico"), how="left", on="folio_unico", lsuffix="_00", rsuffix="_01")
-         .join(df3.set_index("folio_unico"), how="left", on="folio_unico", lsuffix="", rsuffix="_02")
-     )
+df = (df1.append(df2))
 
 
 df.head()
