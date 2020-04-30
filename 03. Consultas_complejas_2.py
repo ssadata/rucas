@@ -46,16 +46,19 @@ cols = ["folio_villa", "folio_vivienda","folio_hogar","num_int_hogar","edad","H3
 
           ## quiero pegarlas hacia abajo
  
-df1 = bases["w1_bdm_e_beta"].set_index(cols)   
-          #index = "folio_unico"
+df1 = pd.DataFrame(bases["w1_bdm_e_beta"], index = "folio_unico", columns = [cols])
+df2 = pd.DataFrame(bases["w2_bdm_e_beta"], index = "folio_unico", columns = [cols])
+df3 = pd.DataFrame(bases["w3_bdm_e_beta"], index = "folio_unico", columns = [cols])
+          
+          # set_index(cols)  
 #df1 = bases["w1_bdm_e_beta"].loc[:, cols]
 #df2 = bases["w2_bdm_e_beta"].loc[:, cols]
 #df3 = bases["w3_bdm_e_beta"].loc[:, cols]
-#df = (df1.append(df2))
+df = (df1.append(df2))
 
 
-print(df1.head())
-df1.to_csv('/home/ubuntu/Rucas/data/csv/base1.csv', sep=',', encoding='utf-8', index = False)
+print(df.head())
+#df1.to_csv('/home/ubuntu/Rucas/data/csv/base1.csv', sep=',', encoding='utf-8', index = False)
 
 
 
