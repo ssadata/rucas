@@ -53,7 +53,7 @@ df = (df1.append(df2))
 
 
 df.head()
-#df.to_csv('ejemplo1.csv', sep=',', encoding='utf-8', index = False)
+df.to_csv('/home/ubuntu/Rucas/data/csv/base1.csv', sep=',', encoding='utf-8', index = False)
 
 
 
