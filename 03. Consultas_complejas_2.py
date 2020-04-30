@@ -46,7 +46,7 @@ cols = ["folio_villa", "folio_vivienda","folio_hogar","numero_int_hogar","edad",
 
           ## quiero pegarlas hacia abajo
  
-df1 = pd.DataFrame(index = folio_unico,columns = [cols])     
+df1 = pd.DataFrame(index = "folio_unico",columns = [cols])     
           
 #df1 = bases["w1_bdm_e_beta"].loc[:, cols]
 #df2 = bases["w2_bdm_e_beta"].loc[:, cols]
