@@ -42,7 +42,7 @@ bases["w1_bdm_e_beta"].head()
 for base in bases:
     bases[base]["folio_unico"] = bases[base]["folio_villa"].astype('str') + '-' + bases[base]["folio_vivienda"].astype('str')
 
-cols = ["folio_villa", "folio_vivienda","folio_hogar","numero_int_hogar","edad","H3", "SA1","SA11","SA12","CS16", "CS18","MC2a", "folio_unico"]
+cols = ["folio_villa", "folio_vivienda","folio_hogar","num_int_hogar","edad","H3", "SA1","SA11","SA12","CS16", "CS18","MC2a", "folio_unico"]
 
           ## quiero pegarlas hacia abajo
  
