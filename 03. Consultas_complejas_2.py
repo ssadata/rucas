@@ -45,11 +45,13 @@ for base in bases:
 cols = ["folio_villa", "folio_vivienda","folio_hogar","numero_int_hogar","edad","H3", "SA1","SA11","SA12","CS16", "CS18","MC2a", "folio_unico"]
 
           ## quiero pegarlas hacia abajo
+ 
+df1 = pd.DataFrame(index = folio_unico,columns = [cols])     
           
-df1 = bases["w1_bdm_e_beta"].loc[:, cols]
-df2 = bases["w2_bdm_e_beta"].loc[:, cols]
-df3 = bases["w3_bdm_e_beta"].loc[:, cols]
-df = (df1.append(df2))
+#df1 = bases["w1_bdm_e_beta"].loc[:, cols]
+#df2 = bases["w2_bdm_e_beta"].loc[:, cols]
+#df3 = bases["w3_bdm_e_beta"].loc[:, cols]
+#df = (df1.append(df2))
 
 
 df.head()
