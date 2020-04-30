@@ -16,7 +16,7 @@ df0, meta = prst.read_sav('/home/ubuntu/Rucas/data/sav/base.sav')
 
 
 ############# 3)  #####################################################
-df0.to_csv('/home/ubuntu/Rucas/data/csv/base.csv', sep=',', encoding='utf-8', index = False)
+df0.to_csv('/home/ubuntu/Rucas/data/csv/base.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
 
 
 # En caso de no poder ejecutar este documento: http://ezcsv2sav.com/about/ " 
