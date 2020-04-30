@@ -54,8 +54,8 @@ df1 = bases["w1_bdm_e_beta"].set_index(cols)
 #df = (df1.append(df2))
 
 
-df.head()
-df.to_csv('/home/ubuntu/Rucas/data/csv/base1.csv', sep=',', encoding='utf-8', index = False)
+print(df1.head())
+df1.to_csv('/home/ubuntu/Rucas/data/csv/base1.csv', sep=',', encoding='utf-8', index = False)
 
 
 
