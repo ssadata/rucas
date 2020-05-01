@@ -30,7 +30,8 @@ for base in bases:
   
 #PREGUNTA   
           
-cols = ["folio_unico", "P15_1_1B", "P15_1_2", "P15_1_3A", "P15_1_3B", "P15_2_1B", "P15_2_2", "P15_2_3A", "P15_2_3B", "P15_3_1B", "P15_3_2", "P15_3_3A", "P15_3_3B", "P15_1_W1", "P15_2_W1", "P15_3_W1"]
+cols = ["folio_unico", "P15_1_1B"]
+#"P15_1_2", "P15_1_3A", "P15_1_3B", "P15_2_1B", "P15_2_2", "P15_2_3A", "P15_2_3B", "P15_3_1B", "P15_3_2", "P15_3_3A", "P15_3_3B", "P15_1_W1", "P15_2_W1", "P15_3_W1"]
           
 df1 = bases["w1_bdm_p"].loc[:, ["folio_villa", "folio_vivienda"] + cols]
           
@@ -40,7 +41,7 @@ df3 = bases["w3_bdm_p"].loc[:, cols]
           
 df = (df1.append([df2, df3]))
           
-df.to_csv('/home/ubuntu/Rucas/data/consultas/01may_Cc3.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
+#df.to_csv('/home/ubuntu/Rucas/data/consultas/01may_Cc3.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
 
 
 print("La consulta fue almacenada con éxito. IMPORTANTE: recuerda editar el nombre del archivo con la fecha y hora actual")
