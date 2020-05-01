@@ -37,7 +37,7 @@ cols = ["folio_unico", "folio_hogar", "num_int_hogar", "edad", "H3", "SA1", "SA1
 df1 = bases["w1_bdm_e_beta"].loc[:, cols]
 df2 = bases["w2_bdm_e_beta"].loc[:, cols]
 df3 = bases["w3_bdm_e_beta"].loc[:, cols]
-df = (df1.append(df2))
+df = (df1.append([df2, df3]))
           
 #PROPONGO UTILIZAR UN CÓDIGO DE ALMACENAMIENTO DE ARCHIVOS COMO EL PUESTO A CONTINUACIÓN (O CUALQUIERA SIMILAR)
 df.to_csv('/home/ubuntu/Rucas/data/consultas/30abr-1730hrs.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
