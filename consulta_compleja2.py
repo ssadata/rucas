@@ -2,12 +2,11 @@
 
 import os
 import json
+import datetime
 import pandas as pd
 import pyreadstat
 
-#Ejemplo Join
-#Ejemplo de Merge
-#Ejemplo de Concat
+now = datetime.datetime.now()
 
 
 # Directorio de bases a cargar
@@ -16,12 +15,8 @@ dir_path = "/home/ubuntu/Rucas/data/csv/"
 ### Carga de tablas como base de datos:
 # * Se crea el directorio vacío "bases" en el cual se cargarán todas las bases.
 # * Se cargarán tantas bases como archivos csv hayan presentes en el directorio seleccionado. 
-# * Inicialmente quedarán con el nombre del archivo y aunque pueden ser editados no es estrictamente necesario
 
-
-bases = {} # UNA COSA ES LOS ARCHIVOS Y DONDE SE ALOJAN, Y OTRA ES LA CARGA DE VALORES DE LOS ARCHIVOS AL MOMENTO DE EJECUTAR LA CONSULTA.
-#LO QUE HACE PYTHON ES LEER LOS ARCHIVOS .CSV EN SU ORIGEN Y CARGAR TODOS SUS VALORES EN ESTA BASE TEMPORAL.
-#UNA VEZ CERRADO PYTHON ESTE OBJETO BASES DESAPARECE.
+bases = {} 
 
 for file in os.listdir(dir_path):
     print(f"Procesando {file.split('.')[0]}")
@@ -38,18 +33,18 @@ for base in bases:
           
           
 cols = ["folio_unico", "folio_hogar", "num_int_hogar", "edad", "H3", "SA1", "SA11", "SA12", "CS16", "CS18", "MC2a"]
-#"folio_villa", "folio_vivienda"
-
+## No es necesario colocarlo considerando que "folio_unico" = "folio_villa" + "folio_vivienda"
+          #Pero si quieres colocarlo igual es cosa de integrarlo.      
           
-          # set_index(cols)  
 df1 = bases["w1_bdm_e_beta"].loc[:, cols]
 df2 = bases["w2_bdm_e_beta"].loc[:, cols]
 df3 = bases["w3_bdm_e_beta"].loc[:, cols]
 df = (df1.append(df2))
+          
+#PROPONGO UTILIZAR UN CÓDIGO DE ALMACENAMIENTO DE ARCHIVOS COMO EL PUESTO A CONTINUACIÓN (O CUALQUIERA SIMILAR)
+df.to_csv('/home/ubuntu/Rucas/data/consultas/30abr-1730hrs.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
 
 
-print(df.head())
-df.to_csv('/home/ubuntu/Rucas/data/csv/base1.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
-
+print("La consulta fue almacenada con éxito. IMPORTANTE: recuerda editar el nombre del archivo con la fecha y hora que son " + now.month + " "+ now.day + " " + now.hour)
 
 
