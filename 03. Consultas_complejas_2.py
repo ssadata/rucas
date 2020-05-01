@@ -32,33 +32,37 @@ for file in os.listdir(dir_path):
 # ##### Ejemplo de base cargada: Se menciona el directorio, especifíca la base y llama a la acción "head()" que imprime los 5 primeros casos de la tabla completa.
 # No visualiza las 135 columnas por un tema de espacio:
 
-bases["w1_bdm_e_beta"].head() 
+
 
 #Pregunta n° 1:
 
 ##### Base con información de Brisas del Mar, de las 3 olas, que contenga las preguntas H3, H5, H9, H7, CS19, CS20, O19a, O20 y  para cada una de las viviendas. Las olas se agregan como columnas.
 ##### Corresponde ahora seleccionar aquellas variables que si perduran en las distintas waves (para un mejor ejemplo)
-          
+#dfa = pd.DataFrame(bases["w1_bdm_e_beta"])
+#dfa.set_index(          
+ 
+       
 for base in bases:
-    bases[base]["folio_unico"] = bases[base]["folio_villa"].astype('str') + '-' + bases[base]["folio_vivienda"].astype('str')
-
+          bases[base]["folio_unico"] = bases[base]["folio_villa"].astype('str') + '-' + bases[base]["folio_vivienda"].astype('str')
+          
+          
 cols = ["folio_unico", "folio_hogar", "num_int_hogar", "edad", "H3", "SA1", "SA11", "SA12", "CS16", "CS18", "MC2a"]
 #"folio_villa", "folio_vivienda"
           ## quiero pegarlas hacia abajo
  
-df1 = pd.DataFrame(bases["w1_bdm_e_beta"], index = "folio_unico", columns = [cols])
-df2 = pd.DataFrame(bases["w2_bdm_e_beta"], index = "folio_unico", columns = [cols])
-df3 = pd.DataFrame(bases["w3_bdm_e_beta"], index = "folio_unico", columns = [cols])
+#df1 = pd.DataFrame(bases["w1_bdm_e_beta"], index = "folio_unico", columns = [cols])
+#df2 = pd.DataFrame(bases["w2_bdm_e_beta"], index = "folio_unico", columns = [cols])
+#df3 = pd.DataFrame(bases["w3_bdm_e_beta"], index = "folio_unico", columns = [cols])
           
           # set_index(cols)  
-#df1 = bases["w1_bdm_e_beta"].loc[:, cols]
-#df2 = bases["w2_bdm_e_beta"].loc[:, cols]
-#df3 = bases["w3_bdm_e_beta"].loc[:, cols]
+df1 = bases["w1_bdm_e_beta"].loc[:, cols]
+df2 = bases["w2_bdm_e_beta"].loc[:, cols]
+df3 = bases["w3_bdm_e_beta"].loc[:, cols]
 df = (df1.append(df2))
 
 
 print(df.head())
-#df1.to_csv('/home/ubuntu/Rucas/data/csv/base1.csv', sep=',', encoding='utf-8', index = False)
+df.to_csv('/home/ubuntu/Rucas/data/csv/base1.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
 
 
 
