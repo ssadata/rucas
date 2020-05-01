@@ -30,7 +30,7 @@ for base in bases:
   
 #PREGUNTA   
 	  
-cols = ["folio_unico", "P15_1_2", "P15_1_3A", "P15_1_3B", "P15_2_2", "P15_2_3A", "P15_2_3B", "P15_3_2", "P15_3_3A", \
+cols = ["folio_unico", "folio_villa", "folio_vivienda", "P15_1_2", "P15_1_3A", "P15_1_3B", "P15_2_2", "P15_2_3A", "P15_2_3B", "P15_3_2", "P15_3_3A", \
 	"P15_3_3B"]
           
 cols1 = ["P15_1_1B", "P15_2_1B", \
