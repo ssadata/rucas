@@ -1,5 +1,5 @@
-# El objetivo del siguiente test es poder realizar las consultas solicitadas en un ambiente separado del programa principal con el objetivo de resguardar la información ya generada y mantener la autonomía de los procesos. 
-# AAAAA
+#### CONSULTA REALIZADA POR FRAN EL DÍA 30 DE ABRIL A LAS 17.30 HRS
+
 import os
 import json
 import pandas as pd
@@ -19,7 +19,9 @@ dir_path = "/home/ubuntu/Rucas/data/csv/"
 # * Inicialmente quedarán con el nombre del archivo y aunque pueden ser editados no es estrictamente necesario
 
 
-bases = {} # QUÉ ES BASES?? ES UN DIRECTORIO? PARA QUÉ SRIVE SI YA TENEMOS TODAS LAS BASES EN UNA CARPETA?
+bases = {} # UNA COSA ES LOS ARCHIVOS Y DONDE SE ALOJAN, Y OTRA ES LA CARGA DE VALORES DE LOS ARCHIVOS AL MOMENTO DE EJECUTAR LA CONSULTA.
+#LO QUE HACE PYTHON ES LEER LOS ARCHIVOS .CSV EN SU ORIGEN Y CARGAR TODOS SUS VALORES EN ESTA BASE TEMPORAL.
+#UNA VEZ CERRADO PYTHON ESTE OBJETO BASES DESAPARECE.
 
 for file in os.listdir(dir_path):
     print(f"Procesando {file.split('.')[0]}")
@@ -29,30 +31,15 @@ for file in os.listdir(dir_path):
     bases[file.split('.')[0]] = db
 
 
-# ##### Ejemplo de base cargada: Se menciona el directorio, especifíca la base y llama a la acción "head()" que imprime los 5 primeros casos de la tabla completa.
-# No visualiza las 135 columnas por un tema de espacio:
-
-
-
 #Pregunta n° 1:
-
-##### Base con información de Brisas del Mar, de las 3 olas, que contenga las preguntas H3, H5, H9, H7, CS19, CS20, O19a, O20 y  para cada una de las viviendas. Las olas se agregan como columnas.
-##### Corresponde ahora seleccionar aquellas variables que si perduran en las distintas waves (para un mejor ejemplo)
-#dfa = pd.DataFrame(bases["w1_bdm_e_beta"])
-#dfa.set_index(          
- 
-       
+      
 for base in bases:
           bases[base]["folio_unico"] = bases[base]["folio_villa"].astype('str') + '-' + bases[base]["folio_vivienda"].astype('str')
           
           
 cols = ["folio_unico", "folio_hogar", "num_int_hogar", "edad", "H3", "SA1", "SA11", "SA12", "CS16", "CS18", "MC2a"]
 #"folio_villa", "folio_vivienda"
-          ## quiero pegarlas hacia abajo
- 
-#df1 = pd.DataFrame(bases["w1_bdm_e_beta"], index = "folio_unico", columns = [cols])
-#df2 = pd.DataFrame(bases["w2_bdm_e_beta"], index = "folio_unico", columns = [cols])
-#df3 = pd.DataFrame(bases["w3_bdm_e_beta"], index = "folio_unico", columns = [cols])
+
           
           # set_index(cols)  
 df1 = bases["w1_bdm_e_beta"].loc[:, cols]
