@@ -43,6 +43,6 @@ df = (df1.append(df2))
 df.to_csv('/home/ubuntu/Rucas/data/consultas/30abr-1730hrs.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
 
 
-print("La consulta fue almacenada con éxito. IMPORTANTE: recuerda editar el nombre del archivo con la fecha y hora actual)
+print("La consulta fue almacenada con éxito. IMPORTANTE: recuerda editar el nombre del archivo con la fecha y hora actual")
 
 
