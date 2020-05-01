@@ -35,13 +35,13 @@ cols = ["folio_unico", "folio_villa", "folio_vivienda", "P15_1_1"]
           
 df1 = bases["w1_bdm_p"].reindex([cols])
           
-#df2 = bases["w2_bdm_p"].loc[:, cols]
+df2 = bases["w2_bdm_p"].reindex([cols])
           
-#df3 = bases["w3_bdm_p"].loc[:, cols]
+df3 = bases["w3_bdm_p"].reindex([cols])
           
-#df = (df1.append([df2, df3]))
+df = (df1.append([df2, df3]))
           
-#df.to_csv('/home/ubuntu/Rucas/data/consultas/01may_Cc3.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
+df.to_csv('/home/ubuntu/Rucas/data/consultas/01may_Cc3.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
 
 
 print("La consulta fue almacenada con éxito. IMPORTANTE: recuerda editar el nombre del archivo con la fecha y hora actual")
