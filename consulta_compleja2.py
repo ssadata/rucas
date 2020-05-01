@@ -31,10 +31,9 @@ for base in bases:
           
           
 cols = ["folio_unico", "folio_hogar", "num_int_hogar", "edad", "H3", "SA1", "SA11", "SA12", "CS16", "CS18", "MC2a"]
-## No es necesario colocarlo considerando que "folio_unico" = "folio_villa" + "folio_vivienda"
-          #Pero si quieres colocarlo igual es cosa de integrarlo.      
+  
           
-df1 = bases["w1_bdm_e_beta"].loc[:, cols]
+df1 = bases["w1_bdm_e_beta"].loc[:, ["folio_villa", "folio_vivienda"] + cols]
 df2 = bases["w2_bdm_e_beta"].loc[:, cols]
 df3 = bases["w3_bdm_e_beta"].loc[:, cols]
 df = (df1.append([df2, df3]))
