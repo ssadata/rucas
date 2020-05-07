@@ -23,9 +23,9 @@ for file in os.listdir(dir_path):
         db = pd.read_csv(dir_path+file, sep=';', thousands=",", header = 0, error_bad_lines=False, encoding="ISO-8859-1")
     bases[file.split('.')[0]] = db
 
-
+	 
 for base in bases:
-          bases[base]["folio_unico"] = bases[base]["folio_villa"].astype('str') + '-' + bases[base]["folio_vivienda"].astype('str')
+    bases[base]["folio_unico"] = bases[base]["folio_villa"].astype('str') + '-' + bases[base]["folio_vivienda"].astype('str')
           
   
 #PREGUNTA   
