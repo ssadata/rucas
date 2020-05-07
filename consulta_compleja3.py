@@ -8,7 +8,7 @@ import pyreadstat
 
 
 # Directorio de bases a cargar
-dir_path = "/home/ubuntu/Rucas/data/csv/"
+dir_path = "/home/ubuntu/Rucas/data/bases/"
 
 ### Carga de tablas como base de datos:
 # * Se crea el directorio vacío "bases" en el cual se cargarán todas las bases.
