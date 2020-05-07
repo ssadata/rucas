@@ -54,7 +54,7 @@ df3 = bases["w3_bdm_p"].loc[:, cols + cols2]
           
 df = (df1.append([df2, df3]))
           
-df.to_csv('/home/ubuntu/Rucas/data/consultas/01may_Cc3.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
+df.to_csv('/home/ubuntu/Rucas/data/consultas/07may_Cc3.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
 
 
 print("La consulta fue almacenada con éxito. IMPORTANTE: recuerda editar el nombre del archivo con la fecha y hora actual")
