@@ -7,7 +7,7 @@ import pyreadstat
 
 
 
-# Directorio de bases a cargar
+# DIRECTORIO BASES, ES IMPORTANTE RECORDAR MANTENER ESTE DIRECTORIO SEPARADO DEL DE CSV YA QUE ESTE ÚLTIMO NOS PROVEE LAS ETIQUETAS DE VARIABLES PERO NO ES PARA REALIZAR LECTURA DE DATOS PARA CONSULTAS
 dir_path = "/home/ubuntu/Rucas/data/bases/"
 
 ### Carga de tablas como base de datos:
