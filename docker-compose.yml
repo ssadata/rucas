@@ -13,7 +13,7 @@ services:
     environment:
       POSTGRES_PASSWORD: passwordRucas123
       POSTGRES_USER: userRucas
-      POSTGRES_MULTIPLE_DATABASES: base_datos, base_metabase
+      POSTGRES_MULTIPLE_DATABASES: rucas, metabase
     ports:
       - 5432:5432
     volumes:
@@ -32,7 +32,7 @@ services:
     environment:
       - MB_SITE_URL=http://localhost/metabase/
       - MB_DB_TYPE=postgres
-      - MB_DB_DBNAME=base_metabase
+      - MB_DB_DBNAME=metabase
       - MB_DB_PORT=5432
       - MB_DB_USER=userRucas
       - MB_DB_PASS=passwordRucas123 
