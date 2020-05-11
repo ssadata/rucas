@@ -28,6 +28,13 @@ services:
     restart: always
     environment:
       - MB_SITE_URL=http://localhost/metabase/
+      - MB_DB_TYPE=postgres
+      - MB_DB_DBNAME=base_datos
+      - MB_DB_PORT=5432
+      - MB_DB_USER=userRucas
+      - MB_DB_PASS=passwordRucas123 
+      - MB_DB_HOST=db 
+      
     ports:
       - 3000:3000
 
