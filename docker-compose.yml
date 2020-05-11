@@ -33,10 +33,11 @@ services:
       - MB_DB_PORT=5432
       - MB_DB_USER=userRucas
       - MB_DB_PASS=passwordRucas123 
-      - MB_DB_HOST=db 
-      
+      - MB_DB_HOST=db     
     ports:
       - 3000:3000
+    depends:
+      - db
 
   minio:
     image: minio/minio
