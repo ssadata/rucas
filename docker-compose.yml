@@ -38,7 +38,7 @@ services:
       - MB_DB_HOST=db     
     ports:
       - 3000:3000
-    depends:
+    depends_on:
       - db
 
   minio:
