@@ -19,8 +19,8 @@ postgres_str = f"postgresql://{POSTGRES_USERNAME}:{POSTGRES_PASSWORD}@{POSTGRES_
 # Conector que servirá de motor de búsqueda
 conn = create_engine(postgres_str)	
 
-dir_path = "/home/ubuntu/Rucas/data/csv/"
-dir_pathj = "/home/ubuntu/Rucas/data/json/"
+dir_path = "/home/ubuntu/Rucas/data/csvSecundarias/"
+
 
 for file in os.listdir(dir_path):
     print(f"Procesando {file}")
