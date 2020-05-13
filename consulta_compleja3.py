@@ -44,7 +44,7 @@ cols2 = ["P15_1_1", "P15_1_1A", "P15_2_1", "P15_2_1A",\
 
 
 												
-
+### A la base W1W2W3 pegarle w3_bdm
           
 df1 = bases["w1_bdm_p"].loc[:, cols + cols1]
           
