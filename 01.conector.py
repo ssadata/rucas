@@ -20,7 +20,7 @@ postgres_str = f"postgresql://{POSTGRES_USERNAME}:{POSTGRES_PASSWORD}@{POSTGRES_
 conn = create_engine(postgres_str)	
 
 dir_path = "/home/ubuntu/Rucas/data/BDM/"
-dir_pathj = "/home/ubuntu/Rucas/data/json/"
+dir_pathj = "/home/ubuntu/Rucas/data/csv_json/json"
 
 for file in os.listdir(dir_path):
     print(f"Procesando {file}")
