@@ -22,12 +22,12 @@ conn = create_engine(postgres_str)
 dir_path = "/home/ubuntu/Rucas/data/BDM/"
 #dir_pathj = "/home/ubuntu/Rucas/data/csv_json/json"
 
-#for file in os.listdir(dir_path):
-#    print(f"Procesando {file}")
-#    db = pd.read_csv(dir_path+file, sep=',', thousands=".", header = 0, error_bad_lines=False, encoding="ISO-8859-1")
+for file in os.listdir(dir_path):
+    print(f"Procesando {file}")
+    db = pd.read_csv(dir_path+file, sep=',', thousands=".", header = 0, error_bad_lines=False, encoding="ISO-8859-1")
 ### Observacion; la condicion (IF) genera un bug en la carga de las tablas con sep=';', por el momento todas las tablas utilizan sep=';'
-#    if db.columns.shape[0] < 2:
-#        db = pd.read_csv(dir_path+file, sep=';', thousands=",", header = 0, error_bad_lines=False, encoding="ISO-8859-1")
+    if db.columns.shape[0] < 2:
+        db = pd.read_csv(dir_path+file, sep=';', thousands=",", header = 0, error_bad_lines=False, encoding="ISO-8859-1")
 
 
 ### Lectura y reemplazo de columnas mediante archivos .json
