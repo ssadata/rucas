@@ -8,7 +8,7 @@ import pyreadstat
 ########################## DIR_PATH'S / DIRECTORIOS #######################
 
 main_path = "/home/ubuntu/Rucas/data/dir_path/csv"
-table_paths =["/bdm/", "/mb/"]
+table_paths =["/bdm/", "/mb/", "/tab"]
 
 ##########################   DB  /  BASE DE DATOS   #######################
 
@@ -22,6 +22,12 @@ for path in table_paths:
             db = pd.read_csv(current_path+file, sep=';', thousands=",", header = 0, error_bad_lines=False, encoding="ISO-8859-1")
         bases[file.split('.')[0]] = db
 
+
+##########################   ID  /  IDENTIFICADOR   #######################
+              
+for base in bases:
+    bases[base]["folio_unico"] = bases[base]["folio_villa"].astype('str') + '-' + bases[base]["folio_vivienda"].astype('str')              
+
 #########################    QUERIES  /  CONSULTAS    ######################
 #**************************************************************************#
 ##################################   N °   1   #############################
@@ -29,6 +35,16 @@ for path in table_paths:
 # 1. Ejemplo de unión de dos bases de datos con distinto número de filas: BBDD Botones y BDM W2.
 
 # a. Generar una base de datos que tenga las variables de BBDD de Botones y de los datos de la encuesta correspondientes a esas viviendas, exportarlas como CSV,
+##########################   COLS / COLUMNAS   #############################
+
+              
+df1 = bases["w2_bdm_e_beta"]
+df2 = bases["w2_bdm_boton"]
+result = pd.concat([df1, df2], sort = True)
+              
+result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1.csv)
+              
+              
 # b. Montar nuevamente en el sistema,
 # c. Ver en Metabase una tabla cruzada de: Media de temperatura (T_Ddia_prom) y humedad (H_Ddia_prom) con número de integrantes de la vivienda (total_integrantes_vivienda).
 
