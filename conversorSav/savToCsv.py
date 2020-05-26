@@ -17,7 +17,7 @@ df0, meta = prst.read_sav('/home/ubuntu/Rucas/data/sav/<filename>.sav')
 
 
 ############# 3)  #####################################################
-df0.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/<filename>.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
+df0.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/<filename>.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
 ################################################ , sep=',', float_format nos quita los decimales '12.0' a '12' #### 
 
 # En caso de no poder ejecutar este documento: http://ezcsv2sav.com/about/ " 
