@@ -40,10 +40,13 @@ for base in bases:
 
 df1 = bases["w2_bdm_boton"]
 df2 = bases["w2_bdm_e_beta"]
+
+df1["T_Ddia_prom"] = df1.["T_Ddia_prom"].astype(float)
+              
 result = (df1.join(df2.set_index('folio_vivienda'), how = "left", on = 'folio_vivienda', lsuffix ="", rsuffix = "_01"))
               
 f_result = result.drop_duplicates('folio_vivienda')
-f_result["T_Ddia_prom"] = pd.to_numeric(f_result["T_Ddia_prom"], downcast="float")
+print(df1["T_Ddia_prom"].type())
               
 print(f_result.head())              
 f_result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
