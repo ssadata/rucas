@@ -41,7 +41,10 @@ for base in bases:
 df1 = bases["w2_bdm_boton"]
 df2 = bases["w2_bdm_e_beta"]
 
-df1["T_Ddia_prom"] = df1["T_Ddia_prom"].astype('float64')
+vars = ["T_Ddia_prom", "T_Ddia_sd", "T_Ddia_min", "T_Ddia_max", "H_Ddia_sd", "T_L_prom", "T_L_sd", "T_L_min", "T_L_max", "H_L_sd", "T_O_prom", "T_O_min"]
+
+for var in vars:
+    vars[var].astype('float64')
            
 
               
