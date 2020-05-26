@@ -4,6 +4,7 @@ import os
 import json
 import pandas as pd
 import pyreadstat
+import re
 
 ########################## DIR_PATH'S / DIRECTORIOS #######################
 
@@ -17,7 +18,7 @@ for path in table_paths:
     current_path = main_path + path
     for file in os.listdir(current_path):
         print(f"procesando {file.split('.')[0]}")
-        db = pd.read_csv(current_path+file, sep=',', thousands=".", header = 0, error_bad_lines=False, encoding="ISO-8859-1")
+        db = pd.read_csv(current_path+file, sep=',', header = 0, error_bad_lines=False, encoding="ISO-8859-1")
         if db.columns.shape[0] < 2:
             db = pd.read_csv(current_path+file, sep=';', thousands=",", header = 0, error_bad_lines=False, encoding="ISO-8859-1")
         bases[file.split('.')[0]] = db
@@ -30,24 +31,43 @@ for base in bases:
 
 #########################    QUERIES  /  CONSULTAS    ######################
 #**************************************************************************#
-##################################   N °   2   #############################
+##################################   N °   1   #############################
 
+# 1. Ejemplo de unión de dos bases de datos con distinto número de filas: BBDD Botones y BDM W2.
 
+# a. Generar una base de datos que tenga las variables de BBDD de Botones y de los datos de la encuesta correspondientes a esas viviendas, exportarlas como CSV,
+##########################     DATAFRAMES      #############################
+
+             
+ 
+################          CONVERSION STRING A FLOAT      ###################
+vars = ["T_Ddia_prom", "T_Ddia_sd", "T_Ddia_min", "T_Ddia_max", "H_Ddia_sd", "T_L_prom", "T_L_sd", "T_L_min", "T_L_max", "H_L_sd", "T_O_prom", "T_O_min"]
+
+for var in vars:
+    df1[var].astype('float64')
+           
+
+################       ELABORACION DE REQUERIMIENTO      ###################              
+result = (df1.join(df2.set_index('folio_vivienda'), how = "left", on = 'folio_vivienda', lsuffix ="", rsuffix = "_01"))
+
+################    ELIMINACION DE VALORES DUPLICADOS    ################### 
+f_result = result.drop_duplicates('folio_vivienda')              
+print(f_result.head())   
               
+################  ALMACENAMIENTO DE NUEVA TABLA COMO CSV ###################               
+f_result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
+           
               
+# b. Montar nuevamente en el sistema,
               
+#############################    OBSERVACION    ############################
+#**************************************************************************#
+#**************************************************************************#              
+# Previa revisión de haber "eliminado" la tabla identica de Adminer.       #
+# Crear y guardar el 'json' respectivo a la tabla creada.                  #
+# Ejecutar `con_tab.py` el cual subirá el contenido de la carpeta /tab     #
+# donde están alojadas las tablas creadas por consultas_complejas          #
+#**************************************************************************#
+#**************************************************************************#
               
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
+# c. Ver en Metabase una tabla cruzada de: Media de temperatura (T_Ddia_prom) y humedad (H_Ddia_prom) con número de integrantes de la vivienda (total_integrantes_vivienda).
