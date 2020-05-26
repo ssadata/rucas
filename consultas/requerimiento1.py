@@ -7,8 +7,8 @@ import pyreadstat
 
 ########################## DIR_PATH'S / DIRECTORIOS #######################
 
-main_path = "/home/haze/Documentos/Programa/AtomProjects/RUCAS/tablas/TEST/GitHub/DIRECTORIOS/CSV"
-table_paths =["/BDM_CSV/", "/MB_CSV/"]
+main_path = "/home/ubuntu/Rucas/data/dir_path/csv"
+table_paths =["/bdm/", "/mb/"]
 
 ##########################   DB  /  BASE DE DATOS   #######################
 
