@@ -35,13 +35,14 @@ for file in os.listdir(dir_path):
 ##   Observacion; todas las tablas deben utilizar sep=';'
 
     if db.columns.shape[0] < 2:
-        db = pd.read_csv(dir_path+file, sep=';', thousands=",", header = 0, error_bad_lines=False, encoding="ISO-8859-1")
+		db = pd.read_csv(dir_path+file, sep=';', thousands=",", header = 0, error_bad_lines=False, encoding="ISO-8859-1")
 
 #########################   JSON / ETIQUETAS  ######################
 
-    with open(f"{dir_pathj+file.split('.')[0]}.json", "r") as f:    
-        cols = json.load(f)
+    with open(f"{dir_pathj+file.split('.')[0]}.json", "r") as f:
+	      cols = json.load(f)
     db = db.rename(columns=cols)
+	      
     if db.columns.shape[0] > 1:
 	      db.to_sql(file.split(".")[0], conn, index = False)
 	
