@@ -4,6 +4,7 @@ import os
 import json
 import pandas as pd
 import pyreadstat
+import re
 
 ########################## DIR_PATH'S / DIRECTORIOS #######################
 
@@ -37,15 +38,14 @@ for base in bases:
 # a. Generar una base de datos que tenga las variables de BBDD de Botones y de los datos de la encuesta correspondientes a esas viviendas, exportarlas como CSV,
 ##########################   COLS / COLUMNAS   #############################
 
-cols = ["folio_unico", "folio_villa", "folio_vivienda"]              
-              
 df1 = bases["w2_bdm_boton"]
 df2 = bases["w2_bdm_e_beta"]
 result = (df1.join(df2.set_index('folio_vivienda'), how = "left", on = 'folio_vivienda', lsuffix ="", rsuffix = "_01"))
               
 f_result = result.drop_duplicates('folio_vivienda')
+f_results = f_result.replace('[^\d.]', '', regex = True).astype(float)
 print(f_result.head())              
-f_result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
+f_results.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
               
               
 # b. Montar nuevamente en el sistema,
