@@ -13,11 +13,11 @@
 
 import pyreadstat as prst
 # 1) #################################################### 2)  #########
-df0, meta = prst.read_sav('/home/ubuntu/Rucas/data/sav/W3 BdM BBDD HH 20 04 24.sav')
+df0, meta = prst.read_sav('/home/ubuntu/Rucas/data/sav/W2 BdM BBDD HH 20 04 24.sav')
 
 
 ############# 3)  #####################################################
-df0.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/W3 BdM BBDD HH 20 04 24.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
+df0.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/W2 BdM BBDD HH 20 04 24.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
 ################################################ , sep=',', float_format nos quita los decimales '12.0' a '12' #### 
 
 # En caso de no poder ejecutar este documento: http://ezcsv2sav.com/about/ " 
