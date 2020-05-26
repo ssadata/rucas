@@ -37,9 +37,10 @@ for base in bases:
 # a. Generar una base de datos que tenga las variables de BBDD de Botones y de los datos de la encuesta correspondientes a esas viviendas, exportarlas como CSV,
 ##########################   COLS / COLUMNAS   #############################
 
+cols = ["folio_unico", "folio_villa", "folio_vivienda"]              
               
-df1 = bases["w2_bdm_e_beta"]
-df2 = bases["w2_bdm_boton"]
+df1 = bases["w2_bdm_boton"]
+df2 = bases["w2_bdm_e_beta"].loc[:, cols]
 result = pd.concat([df1, df2], sort = True)
               
 result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1.csv', sep=',', float_format='%.12g' , encoding='utf-8', index = False)
