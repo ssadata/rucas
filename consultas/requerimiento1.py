@@ -41,7 +41,7 @@ cols = ["folio_unico", "folio_villa", "folio_vivienda"]
               
 df1 = bases["w2_bdm_boton"]
 df2 = bases["w2_bdm_e_beta"]
-result = (df1.join(df2.set_index('folio_vivienda'), how = "left", on = 'folio_vivienda', lsuffix ="", rsuffix = "_01"))
+result = (df1.join(df2.set_index('folio_vivienda'), how = "left", float_format = '%.12g', on = 'folio_vivienda', lsuffix ="", rsuffix = "_01"))
               
 f_result = result.drop_duplicates('folio_vivienda')
 print(f_result.head())              
