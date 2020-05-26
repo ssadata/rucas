@@ -18,7 +18,7 @@ for path in table_paths:
     current_path = main_path + path
     for file in os.listdir(current_path):
         print(f"procesando {file.split('.')[0]}")
-        db = pd.read_csv(current_path+file, sep=',', thousands=".", header = 0, error_bad_lines=False, encoding="ISO-8859-1")
+        db = pd.read_csv(current_path+file, sep=',', header = 0, error_bad_lines=False, encoding="ISO-8859-1")
         if db.columns.shape[0] < 2:
             db = pd.read_csv(current_path+file, sep=';', thousands=",", header = 0, error_bad_lines=False, encoding="ISO-8859-1")
         bases[file.split('.')[0]] = db
