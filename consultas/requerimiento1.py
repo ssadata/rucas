@@ -42,10 +42,10 @@ cols = ["folio_unico", "folio_villa", "folio_vivienda"]
 df1 = bases["w2_bdm_boton"]
 df2 = bases["w2_bdm_e_beta"]
 result = (df1.join(df2.set_index('folio_vivienda'), how = "left", on = 'folio_vivienda', lsuffix ="", rsuffix = "_01"))
-print(result.head())
+
               
 result.drop_duplicates('folio_vivienda')
-              
+print(result.head())              
 result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', encoding='utf-8', index = False)
               
               
