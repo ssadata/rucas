@@ -42,7 +42,7 @@ df1 = bases["w2_bdm_e_beta"]
 df2 = bases["w2_bdm_boton"]
 result = pd.concat([df1, df2], sort = True)
               
-result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1.csv)
+result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1.csv', sep=',', float_format='%.12g' , encoding='utf-8', index = False)
               
               
 # b. Montar nuevamente en el sistema,
