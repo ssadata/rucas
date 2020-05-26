@@ -23,8 +23,8 @@ conn = create_engine(postgres_str)
 
 #########################   DIR_PATH'S / DIRECTORIOS   ######################
 
-dir_path = "/home/ubuntu/Rucas/data/dir_path/csv/etiquetas/"
-dir_pathj = "/home/ubuntu/Rucas/data/dir_path/json/etiquetas/"
+dir_path = "/home/ubuntu/Rucas/data/dir_path/csv/json/"
+dir_pathj = "/home/ubuntu/Rucas/data/dir_path/json/json/"
 
 #########################   DB / BASE DE DATOS   ######################
 
