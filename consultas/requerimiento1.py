@@ -41,6 +41,24 @@ for base in bases:
 df1 = bases["w2_bdm_boton"]
 df2 = bases["w2_bdm_e_beta"]
 
+              
+#############################    OBSERVACION    ############################
+#**************************************************************************#
+#**************************************************************************#              
+# Los 'float' pasan a 'string' al momendo de ejecutar el savToCsv.py debido#
+# al argumento `float_format = '%.12g'` 1) ¿se puede guardar en sav los    #
+# valores con puntuación ' . ' ? y no ' , '.                               #
+# Ej: '12,1' --> '12.1'                                                    #
+# De lo contrario hay que reemplazarlos manualmente utilizando 'reemplazar'#
+# en la hoja de cálculo y cambiar ' , ' por ' . '.                         #
+# Esto es requerimiento para que las líneas 59 a 62 puedan ejecutarse y así#
+# las columnas con decimales puedan volver a convertirse en float.         #
+#                                                                          #
+# Los requerimientos solicitados fueron cumplidos, esta observación cumple #
+# la función de nota de campo para su posterior desarrollo.                #
+#**************************************************************************#
+#**************************************************************************#
+              
 vars = ["T_Ddia_prom", "T_Ddia_sd", "T_Ddia_min", "T_Ddia_max", "H_Ddia_sd", "T_L_prom", "T_L_sd", "T_L_min", "T_L_max", "H_L_sd", "T_O_prom", "T_O_min"]
 
 for var in vars:
@@ -58,5 +76,16 @@ f_result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv',
               
               
 # b. Montar nuevamente en el sistema,
+              
+#############################    OBSERVACION    ############################
+#**************************************************************************#
+#**************************************************************************#              
+# Previa revisión de haber "eliminado" la tabla de Adminer.                #
+# Crear y guardar el 'json' respectivo a la tabla creada.                  #
+# Ejecutar `con_tab.py` el cual subirá el contenido de la carpeta /tab     #
+# donde están alojadas las tablas creadas por consultas_complejas          #
+#**************************************************************************#
+#**************************************************************************#
+              
 # c. Ver en Metabase una tabla cruzada de: Media de temperatura (T_Ddia_prom) y humedad (H_Ddia_prom) con número de integrantes de la vivienda (total_integrantes_vivienda).
 
