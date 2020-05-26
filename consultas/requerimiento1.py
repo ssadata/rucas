@@ -46,7 +46,7 @@ result = (df1.join(df2.set_index('folio_vivienda'), how = "left", on = 'folio_vi
               
 result.drop_duplicates()
 print(result.head())              
-result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', encoding='utf-8', index = False)
+#result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', encoding='utf-8', index = False)
               
               
 # b. Montar nuevamente en el sistema,
