@@ -41,7 +41,7 @@ for base in bases:
 df1 = bases["w2_bdm_boton"]
 df2 = bases["w2_bdm_e_beta"]
 
-df1["T_Ddia_prom"] = df1.["T_Ddia_prom"].astype(float)
+df1["T_Ddia_prom"] = df1["T_Ddia_prom"].astype(float)
               
 result = (df1.join(df2.set_index('folio_vivienda'), how = "left", on = 'folio_vivienda', lsuffix ="", rsuffix = "_01"))
               
