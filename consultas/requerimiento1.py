@@ -41,7 +41,7 @@ for base in bases:
 df1 = bases["w2_bdm_boton"]
 df2 = bases["w2_bdm_e_beta"]
 
-df1["T_Ddia_prom"] = df1["T_Ddia_prom"].replace(",", ".")
+df1["T_Ddia_prom"] = df1["T_Ddia_prom"].astype('float64')
            
 
               
