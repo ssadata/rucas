@@ -40,8 +40,8 @@ for base in bases:
 cols = ["folio_unico", "folio_villa", "folio_vivienda"]              
               
 df1 = bases["w2_bdm_boton"]
-df2 = bases["w2_bdm_e_beta"].loc[:, cols]
-result = pd.concat([df1, df2], sort = True)
+df2 = bases["w2_bdm_e_beta"]
+result = (df1.join(df2.set_index('folio_unico'), how = "left", on = 'folio_vivienda', lsuffix ="", rsuffix = "_01")
               
 result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1.csv', sep=',', float_format='%.12g' , encoding='utf-8', index = False)
               
