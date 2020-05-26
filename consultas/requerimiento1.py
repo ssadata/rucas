@@ -74,7 +74,7 @@ f_result = result.drop_duplicates('folio_vivienda')
 print(f_result.head())   
               
 ################  ALMACENAMIENTO DE NUEVA TABLA COMO CSV ###################               
-f_result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', float_format='%.3f', encoding='utf-8', index = False)
+f_result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
 #############################    OBSERVACION    ############################
 #**************************************************************************#
 #**************************************************************************#              
