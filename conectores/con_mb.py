@@ -43,6 +43,6 @@ for file in os.listdir(dir_path):
         cols = json.load(f)
     db = db.rename(columns=cols)
 	      
-    if db.columns.shape[0] > 1: 
-	db.to_sql(file.split(".")[0], conn, index = False)
+    if db.columns.shape[0] > 1:
+	      db.to_sql(file.split(".")[0], conn, index = False)
 	
