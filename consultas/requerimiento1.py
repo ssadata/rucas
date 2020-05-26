@@ -43,7 +43,7 @@ df2 = bases["w2_bdm_e_beta"]
 result = (df1.join(df2.set_index('folio_vivienda'), how = "left", on = 'folio_vivienda', lsuffix ="", rsuffix = "_01"))
               
 f_result = result.drop_duplicates('folio_vivienda')
-f_results = f_result.replace('[^\d.]', '', regex = True).astype(integer)
+f_results = f_result.replace('[^\d.]', '', regex = True).astype(int)
 print(f_result.head())              
 f_results.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
               
