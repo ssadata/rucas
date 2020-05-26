@@ -42,6 +42,7 @@ for file in os.listdir(dir_path):
     with open(f"{dir_pathj+file.split('.')[0]}.json", "r") as f:    
         cols = json.load(f)
     db = db.rename(columns=cols)
+	      
     if db.columns.shape[0] > 1: 
 	db.to_sql(file.split(".")[0], conn, index = False)
 	
