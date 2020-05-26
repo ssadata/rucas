@@ -51,7 +51,7 @@ f_result = result.drop_duplicates('folio_vivienda')
 
               
 print(f_result.head())              
-f_result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', encoding='utf-8', index = False)
+f_result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
               
               
 # b. Montar nuevamente en el sistema,
