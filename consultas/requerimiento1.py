@@ -51,7 +51,7 @@ df2 = bases["w2_bdm_e_beta"]
 # Ej: '12,1' --> '12.1'                                                    #
 # De lo contrario hay que reemplazarlos manualmente utilizando 'reemplazar'#
 # en la hoja de cálculo y cambiar ' , ' por ' . '.                         #
-# Esto es requerimiento para que las líneas 59 a 62 puedan ejecutarse y así#
+# Esto es requerimiento para que las líneas 63 a 66 puedan ejecutarse y así#
 # las columnas con decimales puedan volver a convertirse en float.         #
 #                                                                          #
 # Los requerimientos solicitados fueron cumplidos, esta observación cumple #
@@ -75,7 +75,15 @@ print(f_result.head())
               
 ################  ALMACENAMIENTO DE NUEVA TABLA COMO CSV ###################               
 f_result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', float_format = '%.12g', encoding='utf-8', index = False)
-              
+#############################    OBSERVACION    ############################
+#**************************************************************************#
+#**************************************************************************#              
+# Acá nuevamente se utiliza el argumento `float_format = '%.12g'` pero la  #
+# puntuación será con ' . ' y por ello no requerirá nueva intervención     #
+# salvo por replicar el ciclo (con sus respectivas columnas) de las líneas #
+# 63 a 66.
+#**************************************************************************#
+#**************************************************************************#              
               
 # b. Montar nuevamente en el sistema,
               
