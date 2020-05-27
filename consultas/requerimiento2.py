@@ -42,13 +42,13 @@ df3 = bases["w3_bdm_bbdd_hh_20_04_24"].loc[:, cols1 + cols2]
             
 ################       ELABORACION DE REQUERIMIENTO      ###################              
 result = (pd.merge(df1, df2, how = 'left', left_index= True, suffixes=('', '_h2'), on = 'folio_unico', sort = False))
-
+result2 = (pd.merge(result, df3, how = 'left', left_index= True, suffixes=('', '_h3'), on = 'folio_unico', sort = False))
 ################    ELIMINACION DE VALORES DUPLICADOS    ################### 
 #f_result = result.drop_duplicates('folio_vivienda')              
-print(result.head())   
+print(result2.head())   
               
 ################  ALMACENAMIENTO DE NUEVA TABLA COMO CSV ###################               
-result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento2.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
+result2.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento2.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
            
               
 # b. Montar nuevamente en el sistema,
