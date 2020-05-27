@@ -9,7 +9,7 @@ import re
 ########################## DIR_PATH'S / DIRECTORIOS #######################
 
 main_path = "/home/ubuntu/Rucas/data/dir_path/csv"
-table_paths =["/bdm/", "/mb/"]
+table_paths =["/bdm/", "/mb/", "/tab/"]
 
 ##########################   DB  /  BASE DE DATOS   #######################
 
