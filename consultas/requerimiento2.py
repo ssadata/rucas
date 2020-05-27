@@ -35,14 +35,30 @@ for base in bases:
 ##########################     DATAFRAMES      #############################
 cols1 = ["folio_vivienda", "folio_unico", "estado_intervencion", "telefonica"]
 cols2 = ["cambio_vivienda", "fuera_villa", "hogar_dividido", "cambio_inf_baseline", "cambio_inf_prev", "fuera_villa", "hogar_dividido"]
-
+cols3 = ["inf_clave", "inf_clave1", "participa1", "participa2", "total_integrantes_vivienda", "edad", "H3", "SA1", "SA10", "SA10A", "SA12B", "SA11", "SA12", "SA13a", "SA13b", "SA13c", "SA13d", "CS16", "menores_15", "edad_cat_2", "NEDU", "sfdt", "cise", "cise_ocupados", "hacin_dormitorios", "hacin_dormitoriosrec", "hacin_dormitorioscat", "p12_1cat", "mc1sat", "mc3sat", "mc5sat", "mc1insat", "mc3insat", "mc5insat", "mc2anun", "mc2bnun", "mc2asie", "mc2bsie", "SA1_cat", "PHQ_2", "PHQ_2_cat", "GHQ_dg", "GHQ_dg_cat1", "urg_resp_cat", "hosp_resp_cat", "urg_resp_mes_6", "hosp_resp_mes_12", "fumador_actual", "CS2_c", "CS3_c", "cs11_12", "cs11_12_c", "RecArUse", "u3_aux" ]
+cols4 = ["v1sat", "v5sat", "v1insat", "v5insat", "v2cat", "v3cat"]              
+              
 df1 = bases["w1_bdm_bbdd_hh_20_04_24"].loc[:, cols1]
 df2 = bases["w2_bdm_bbdd_hh_20_04_24"].loc[:, cols1 + cols2]
 df3 = bases["w3_bdm_bbdd_hh_20_04_24"].loc[:, cols1 + cols2]
+
+df4 = bases["w1_bdm_e_beta"].loc[:, cols3 + cols4]              
+df5 = bases["w2_bdm_e_beta"].loc[:, cols3]              
+df6 = bases["w3_bdm_e_beta"].loc[:, cols3 + cols4]
+
+             
+      
             
 ################       ELABORACION DE REQUERIMIENTO      ###################              
-result = (pd.merge(df1, df2, how = 'left', left_index= True, suffixes=('', '_h2'), on = 'folio_unico', sort = False))
-result2 = (pd.merge(result, df3, how = 'left', left_index= True, suffixes=('', '_h3'), on = 'folio_unico', sort = False))
+result1 = (pd.merge(df1, df2, how = 'left', left_index= True, suffixes=('', '_h2'), on = 'folio_unico', sort = False))
+result2 = (pd.merge(result1, df3, how = 'left', left_index= True, suffixes=('', '_h3'), on = 'folio_unico', sort = False))
+              
+result3 = (pd.merge(result2, df4 how = 'left', left_index= True, suffixes=('', '_h4'), on = 'folio_unico', sort = False))
+result4 = (pd.merge(result3, df5 how = 'left', left_index= True, suffixes=('', '_h5'), on = 'folio_unico', sort = False))
+result5 = (pd.merge(result4, df6 how = 'left', left_index= True, suffixes=('', '_h6'), on = 'folio_unico', sort = False))
+              
+              
+              
 ################    ELIMINACION DE VALORES DUPLICADOS    ################### 
 #f_result = result.drop_duplicates('folio_vivienda')              
 print(result2.head())   
