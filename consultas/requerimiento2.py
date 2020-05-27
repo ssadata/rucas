@@ -41,7 +41,11 @@ cols4 = ["v1sat", "v5sat", "v1insat", "v5insat", "v2cat", "v3cat"]
 df1 = bases["w1_bdm_bbdd_hh_20_04_24"].loc[:, cols1]
 df2 = bases["w2_bdm_bbdd_hh_20_04_24"].loc[:, cols1 + cols2]
 df3 = bases["w3_bdm_bbdd_hh_20_04_24"].loc[:, cols1 + cols2]
-
+              
+####### hasta este punto el código funciona, pero me tira error ya que una o mas de las variables entregadas no están bien escritas
+####### o derechamente no se encuentran presenten en las tablas solicitadas.
+####### Se deja manifiesto el proceder pero los nombres de cols3 y cols4 han de ser revisado para que puedan ejecutar el requerimiento.
+              
 df4 = bases["w1_bdm_e_beta"].loc[:, cols3 + cols4]              
 df5 = bases["w2_bdm_e_beta"].loc[:, cols3]              
 df6 = bases["w3_bdm_e_beta"].loc[:, cols3 + cols4]
@@ -52,6 +56,7 @@ df6 = bases["w3_bdm_e_beta"].loc[:, cols3 + cols4]
 ################       ELABORACION DE REQUERIMIENTO      ###################              
 result1 = (pd.merge(df1, df2, how = 'left', left_index= True, suffixes=('', '_h2'), on = 'folio_unico', sort = False))
 result2 = (pd.merge(result1, df3, how = 'left', left_index= True, suffixes=('', '_h3'), on = 'folio_unico', sort = False))
+               
 print(result2.head())   
                          
 result3 = (pd.merge(result2, df4 how = 'left', left_index= True, suffixes=('', '_h4'), on = 'folio_unico', sort = False))
@@ -62,14 +67,13 @@ result5 = (pd.merge(result4, df6 how = 'left', left_index= True, suffixes=('', '
               
 ################    ELIMINACION DE VALORES DUPLICADOS    ################### 
 #f_result = result.drop_duplicates('folio_vivienda')              
-print(result2.head())   
+print(result5.head())   
               
 ################  ALMACENAMIENTO DE NUEVA TABLA COMO CSV ###################               
-result2.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento2.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
-           
+result5.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento2.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
+         
               
-# b. Montar nuevamente en el sistema,
-              
+             
 #############################    OBSERVACION    ############################
 #**************************************************************************#
 #**************************************************************************#              
