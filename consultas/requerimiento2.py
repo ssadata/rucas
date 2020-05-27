@@ -38,9 +38,9 @@ for base in bases:
 cols1 = ["estado_intervencion", "telefonica"]
 cols2 = ["cambio_vivienda", "fuera_villa_hogar_dividido", "cambio_inf_baseline", "cambio_inf_prev", "fuera_villa", "hogar_dividido"]
               
-df1 = bases["W1 BdM BBDD HH 20 04 24"].loc[:, cols1]
-df2 = bases["W2 BdM BBDD HH 20 04 24"].loc[:, cols1 + cols2]
-df3 = bases["W3 BdM BBDD HH 20 04 24"].loc[:, cols1 + cols2]
+df1 = bases["w1_bdm_bbdd_hh_20_04_24"].loc[:, cols1]
+df2 = bases["w2_bdm_bbdd_hh_20_04_24"].loc[:, cols1 + cols2]
+df3 = bases["w3_bdm_bbdd_hh_20_04_24"].loc[:, cols1 + cols2]
             
 ################       ELABORACION DE REQUERIMIENTO      ###################              
 result = (df1.join(df2.set_index('folio_unico'), how = "left", on = 'folio_unico', lsuffix ="", rsuffix = "_01"))
