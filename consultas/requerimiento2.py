@@ -52,7 +52,8 @@ df6 = bases["w3_bdm_e_beta"].loc[:, cols3 + cols4]
 ################       ELABORACION DE REQUERIMIENTO      ###################              
 result1 = (pd.merge(df1, df2, how = 'left', left_index= True, suffixes=('', '_h2'), on = 'folio_unico', sort = False))
 result2 = (pd.merge(result1, df3, how = 'left', left_index= True, suffixes=('', '_h3'), on = 'folio_unico', sort = False))
-              
+print(result2.head())   
+                         
 result3 = (pd.merge(result2, df4 how = 'left', left_index= True, suffixes=('', '_h4'), on = 'folio_unico', sort = False))
 result4 = (pd.merge(result3, df5 how = 'left', left_index= True, suffixes=('', '_h5'), on = 'folio_unico', sort = False))
 result5 = (pd.merge(result4, df6 how = 'left', left_index= True, suffixes=('', '_h6'), on = 'folio_unico', sort = False))
