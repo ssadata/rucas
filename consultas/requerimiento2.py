@@ -41,7 +41,7 @@ df2 = bases["w2_bdm_bbdd_hh_20_04_24"].loc[:, cols1 + cols2]
 df3 = bases["w3_bdm_bbdd_hh_20_04_24"].loc[:, cols1 + cols2]
             
 ################       ELABORACION DE REQUERIMIENTO      ###################              
-result = (pd.concat([df1, df2, df3],axis = 1, sort = False))
+result = (pd.merge(df1, df2, df3, how = 'outer', left_index= True, suffixes=('', '_h2', '_h3'), on = 'folio_unico', axis = 0, sort = False))
 
 ################    ELIMINACION DE VALORES DUPLICADOS    ################### 
 #f_result = result.drop_duplicates('folio_vivienda')              
