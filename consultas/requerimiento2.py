@@ -36,7 +36,7 @@ for base in bases:
 # 1. Unir bases de datos "hacia el lado”: Tenemos 3 olas de BDM.
 ##########################     DATAFRAMES      #############################
 cols1 = ["estado_intervencion", "telefonica"]
-cols2 = ["cambio_vivienda", "fuera_villa_hogar_dividido", "cambio_inf_baseline", "cambio_inf_prev", "fuera_villa", "hogar_dividido"]
+cols2 = ["cambio_vivienda", "fuera_villa", "hogar_dividido", "cambio_inf_baseline", "cambio_inf_prev", "fuera_villa", "hogar_dividido"]
               
 df1 = bases["w1_bdm_bbdd_hh_20_04_24"].loc[:, cols1]
 df2 = bases["w2_bdm_bbdd_hh_20_04_24"].loc[:, cols1 + cols2]
