@@ -48,7 +48,7 @@ result = (pd.concat([df1, df2, df3],axis = 1, sort = False))
 print(result.head())   
               
 ################  ALMACENAMIENTO DE NUEVA TABLA COMO CSV ###################               
-f_result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento2.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
+result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento2.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
            
               
 # b. Montar nuevamente en el sistema,
