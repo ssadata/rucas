@@ -31,31 +31,26 @@ for base in bases:
 
 #########################    QUERIES  /  CONSULTAS    ######################
 #**************************************************************************#
-##################################   N °   1   #############################
+##################################   N °   2   #############################
 
-# 1. Ejemplo de unión de dos bases de datos con distinto número de filas: BBDD Botones y BDM W2.
-
-# a. Generar una base de datos que tenga las variables de BBDD de Botones y de los datos de la encuesta correspondientes a esas viviendas, exportarlas como CSV,
+# 1. Unir bases de datos "hacia el lado”: Tenemos 3 olas de BDM.
 ##########################     DATAFRAMES      #############################
-
-             
- 
-################          CONVERSION STRING A FLOAT      ###################
-vars = ["T_Ddia_prom", "T_Ddia_sd", "T_Ddia_min", "T_Ddia_max", "H_Ddia_sd", "T_L_prom", "T_L_sd", "T_L_min", "T_L_max", "H_L_sd", "T_O_prom", "T_O_min"]
-
-for var in vars:
-    df1[var].astype('float64')
-           
-
+cols1 = ["estado_intervencion", "telefonica"]
+cols2 = ["cambio_vivienda", "fuera_villa_hogar_dividido", "cambio_inf_baseline", "cambio_inf_prev", "fuera_villa", "hogar_dividido"]
+              
+df1 = bases["W1 BdM BBDD HH 20 04 24"].loc[:, cols1]
+df2 = bases["W2 BdM BBDD HH 20 04 24"].loc[:, cols1 + cols2]
+df3 = bases["W3 BdM BBDD HH 20 04 24"].loc[:, cols1 + cols2]
+            
 ################       ELABORACION DE REQUERIMIENTO      ###################              
-result = (df1.join(df2.set_index('folio_vivienda'), how = "left", on = 'folio_vivienda', lsuffix ="", rsuffix = "_01"))
+result = (df1.join(df2.set_index('folio_unico'), how = "left", on = 'folio_unico', lsuffix ="", rsuffix = "_01"))
 
 ################    ELIMINACION DE VALORES DUPLICADOS    ################### 
-f_result = result.drop_duplicates('folio_vivienda')              
-print(f_result.head())   
+#f_result = result.drop_duplicates('folio_vivienda')              
+print(result.head())   
               
 ################  ALMACENAMIENTO DE NUEVA TABLA COMO CSV ###################               
-f_result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento1_1.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
+f_result.to_csv('/home/ubuntu/Rucas/data/dir_path/csv/tab/requerimiento2.csv', sep=',', float_format='%g', encoding='utf-8', index = False)
            
               
 # b. Montar nuevamente en el sistema,
