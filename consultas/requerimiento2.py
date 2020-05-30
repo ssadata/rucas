@@ -47,7 +47,7 @@ df3 = bases["w3_bdm_bbdd_hh_20_04_24"].loc[:, cols1 + cols2]
 ####### Se deja manifiesto el proceder pero los nombres de cols3 y cols4 han de ser revisado para que puedan ejecutar el requerimiento.
               
 df4 = bases["w1_bdm_e_beta"].loc[:, cols3 + cols4]              
-df5 = bases["w2_bdm_e_beta"].loc[:, cols3]              
+df5 = bases["w2_bdm_e_beta"].loc[:, cols3 + cols4]              
 df6 = bases["w3_bdm_e_beta"].loc[:, cols3 + cols4]
 
              
@@ -59,9 +59,9 @@ result2 = (pd.merge(result1, df3, how = 'left', left_index= True, suffixes=('', 
                
 print(result2.head())   
                          
-result3 = (pd.merge(result2, df4 how = 'left', left_index= True, suffixes=('', '_h4'), on = 'folio_unico', sort = False))
-result4 = (pd.merge(result3, df5 how = 'left', left_index= True, suffixes=('', '_h5'), on = 'folio_unico', sort = False))
-result5 = (pd.merge(result4, df6 how = 'left', left_index= True, suffixes=('', '_h6'), on = 'folio_unico', sort = False))
+result3 = (pd.merge(result2, df4, how = 'left', left_index= True, suffixes=('', '_h4'), on = 'folio_unico', sort = False))
+result4 = (pd.merge(result3, df5, how = 'left', left_index= True, suffixes=('', '_h5'), on = 'folio_unico', sort = False))
+result5 = (pd.merge(result4, df6, how = 'left', left_index= True, suffixes=('', '_h6'), on = 'folio_unico', sort = False))
               
               
               
