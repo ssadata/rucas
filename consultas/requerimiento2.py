@@ -59,9 +59,9 @@ result2 = (pd.merge(result1, df3, how = 'left', left_index= True, suffixes=('', 
                
 print(result2.head())   
                          
-result3 = (pd.merge(result2, df4, how = 'left', left_index= True, suffixes=('', '_h4'), on = 'folio_unico', sort = False))
-result4 = (pd.merge(result3, df5, how = 'left', left_index= True, suffixes=('', '_h5'), on = 'folio_unico', sort = False))
-result5 = (pd.merge(result4, df6, how = 'left', left_index= True, suffixes=('', '_h6'), on = 'folio_unico', sort = False))
+result3 = (pd.merge(result2, df4, how = 'left', left_index= True, suffixes=('', '_h1'), on = 'folio_unico', sort = False))
+result4 = (pd.merge(result3, df5, how = 'left', left_index= True, suffixes=('', '_h2'), on = 'folio_unico', sort = False))
+result5 = (pd.merge(result4, df6, how = 'left', left_index= True, suffixes=('', '_h3'), on = 'folio_unico', sort = False))
               
               
               
