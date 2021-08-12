@@ -11,8 +11,8 @@ from sqlalchemy import create_engine
 
 POSTGRES_ADDRESS = 'localhost' ## INSERT YOUR DB ADDRESS IF IT'S NOT ON PANOPLY
 POSTGRES_PORT = '5432'         ## CONNECT WITH THE PORT
-POSTGRES_USERNAME = 'userRucas' ## CHANGE THIS TO YOUR PANOPLY/POSTGRES USERNAME
-POSTGRES_PASSWORD = 'passwordRucas123' ## CHANGE THIS TO YOUR PANOPLY/POSTGRES PASSWORD
+POSTGRES_USERNAME = 'user' ## CHANGE THIS TO YOUR PANOPLY/POSTGRES USERNAME
+POSTGRES_PASSWORD = 'password' ## CHANGE THIS TO YOUR PANOPLY/POSTGRES PASSWORD
 POSTGRES_DBNAME = 'rucas' ## CHANGE THIS TO YOUR DATABASE NAME
 
 # Información de validación de Postgres
@@ -23,8 +23,8 @@ conn = create_engine(postgres_str)
 
 #########################   DIR_PATH'S / DIRECTORIOS   ######################
 
-dir_path = "/home/ubuntu/Rucas/data/dir_path/csv/tab/"
-dir_pathj = "/home/ubuntu/Rucas/data/dir_path/json/tab/"
+dir_path = "/dir_path/csv/tab/"
+dir_pathj = "/dir_path/json/tab/"
 
 #########################   DB / BASE DE DATOS   ######################
 
