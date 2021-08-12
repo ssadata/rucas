@@ -11,8 +11,8 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: passwordRucas123
-      POSTGRES_USER: userRucas
+      POSTGRES_PASSWORD: pswrd
+      POSTGRES_USER: user
       POSTGRES_MULTIPLE_DATABASES: rucas, metabase
     ports:
       - 5432:5432
@@ -34,8 +34,8 @@ services:
       - MB_DB_TYPE=postgres
       - MB_DB_DBNAME=metabase
       - MB_DB_PORT=5432
-      - MB_DB_USER=userRucas
-      - MB_DB_PASS=passwordRucas123 
+      - MB_DB_USER= user
+      - MB_DB_PASS= pswrd
       - MB_DB_HOST=db     
     ports:
       - 3000:3000
@@ -50,6 +50,6 @@ services:
     ports:
       - 9000:9000
     environment:
-      MINIO_ACCESS_KEY: userRucas
-      MINIO_SECRET_KEY: passwordRucas123
+      MINIO_ACCESS_KEY: user
+      MINIO_SECRET_KEY: pswrd
     command: server /data
